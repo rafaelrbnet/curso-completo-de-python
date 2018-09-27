@@ -1,22 +1,22 @@
-#!/usr/bin/env python
-# -*- coding: UTF-8 -*-
+animais = ["gato", "cachorro", "papagaio", "boi"]
 
-animais = ["gato","cachorro","papagaio"]
+print(animais)
 
-animais.append("boi") # add um item ao final dessa lista
-print animais
+print('# add um item na posição 2 da lista')
+animais.insert(2, "boi")
+print(animais)
 
-animais.insert(2,"boi") # add um item na posição 2 da lista
-print animais
+print('# remove o item da lista')
+animais.remove("boi")
+print(animais)
 
-animais.remove("boi") # remove o item da lista
-print animais
+print('# remove último item da lista')
+animais.pop()
+print(animais)
 
-animais.pop() # remove último item da lista
-print animais
+print('# remove o item na posição 1 da lista')
+animais.pop(1)
+print(animais)
 
-animais.pop(1) # remove o item na posição 1 da lista
-print animais
-
-animais.count("gato") # mostra a posição em que o item aparece na lista
-
+print('# mostra a posição em que o item aparece na lista')
+print(animais.count("gato"))
