@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: UTF-8 -*-
-
 """
   Temos um script que simula a expiração 
   de um token de acesso. Criamos uma
@@ -15,20 +12,18 @@
 
   Modificado em 14 de março de 2017
   por Vitor Mazuco (vitor.mazuco@gmail.com)
+
+  Editado em 28 Setembro 2018
+  por Rafael Baena Neto (rafael.baena@gmail.com)
+  Alteração para PEP 8 e Python 3
 """
 
 from datetime import datetime
 
-acesso = datetime(2017,01,22,00,00,00)
-atual = datetime(2017,01,22,01,02,00)
+acesso = datetime(2017, 1, 22, 00, 00, 00)
+atual = datetime(2017, 1, 22, 1, 2, 00)
 
 if (atual - acesso).total_seconds() > 3600:
-	print "Seu token expirou"
+    print("Seu token expirou")
 else:
-	print "Acesso liberado"
-
-
-
-
-
-
+    print("Acesso liberado")
