@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: UTF-8 -*-
-# CREATE_ALC.py
-
 """
   Nesse script é criado um arquivo em 
   sqlite nomeado de banco.db.
@@ -9,36 +5,21 @@
   armazenamento de dados, suas configurações
   e o seu cache. 
 
-
   Modificado em 28 de março de 2017
   por Vitor Mazuco (vitor.mazuco@gmail.com)
+
+  Editado em 28 Setembro 2018
+  por Rafael Baena Neto (rafael.baena@gmail.com)
+  Alteração para PEP 8 e Python 3
 """
 
-import sys
+from sqlalchemy import create_engine
 
 try:
-	from sqlalchemy import create_engine
-except:
-    sys.exit("[!] Por favor, intale a biblioteca sqlalchemy com o comando: sudo pip install sqlalchemy")
-
-try:
-	engine = create_engine("sqlite:///banco.db")
-	print engine
+    engine = create_engine("sqlite:///banco.db")
+    # engine = create_engine('mysql+mysqlconnector://root:root@localhost/projeto')
+    # engine = create_engine('postgresql+psycopg2://postgres:123456@localhost/projeto')
+    engine.connect()
+    print(engine)
 except Exception as e:
-	print "Falhou a conexão %s"%e
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    print("Falhou a conexão %s" % e)
