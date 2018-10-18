@@ -16,43 +16,50 @@ session = Session()
 Base = declarative_base()
 
 # Classe Cliente
+
+
 class Client(Base):
     __tablename__ = "Client"
-    id = Column(Integer,primary_key=True)
+    id = Column(Integer, primary_key=True)
     name = Column(String)
     cpf = Column(String)
     segment = Column(String)
     service = relationship("Service")
 
 # Classe Produto
+
+
 class Product(Base):
     __tablename__ = "Product"
-    id = Column(Integer,primary_key=True)
+    id = Column(Integer, primary_key=True)
     name = Column(String)
     description = Column(String)
     image = Column(String)
 
 # Classe Serviço
+
+
 class Service(Base):
     __tablename__ = "Service"
-    id = Column(Integer,primary_key=True)
-    cliente_id = Column(Integer,ForeignKey("Client.id"))
-    produto_id = Column(Integer,ForeignKey("Product.id"))
+    id = Column(Integer, primary_key=True)
+    cliente_id = Column(Integer, ForeignKey("Client.id"))
+    produto_id = Column(Integer, ForeignKey("Product.id"))
     request_date = Column(Date)
     cancel_date = Column(Date)
     client = relationship("Client")
     product = relationship("Product")
 
-if __name__ == "__main__":    
+
+if __name__ == "__main__":
     try:
         Base.metadata.create_all(engine)
         # Cliente
-        dexter = Client(name="XPTO3",cpf="000.000.000/0002-00",segment="Logistica")
+        dexter = Client(name="XPTO3", cpf="000.000.000/0002-00", segment="Logistica")
 
         # Produtos
-        intranet = Product(name="Intranet",description="Intranet da XPTO",image="intranet")
-        website = Product(name="Website",description="Website da XPTO",image="website")
-        backup = Product(name="Backup",description="Backup da XPTO",image="backup")
+        intranet = Product(name="Intranet", description="Intranet da XPTO", image="intranet")
+        website = Product(name="Website", description="Website da XPTO", image="website")
+        backup = Product(name="Backup", description="Backup da XPTO", image="backup")
 
         service1 = Service()
         service1.request_date = date.today()
@@ -80,10 +87,10 @@ if __name__ == "__main__":
 
         # Vamos imprimir todos os resultados do banco de dados
         for c in session.query(Client).all():
-            print(c.id,c.name)
+            print(c.id, c.name)
         
         for c in session.query(Product).all():
-            print(c.id,c.name)
+            print(c.id, c.name)
         
     except Exception as e:
         print("Falhou ao salvar no BD ", e)

@@ -15,16 +15,16 @@ class MongoOps:
         self._db = self._client[config.get("mongodb", "base")]
 
     def get_queue(self):
-        queue = self._db.queue.find({})
+        queue = self._db.fila.find()
         return queue
 
     def get_service_to_remove(self):
-        return self._db.queue.find({"status": 1})
+        return self._db.fila.find({"status": 1})
 
     def get_service_to_install(self):
-        return self._db.queue.find({"status": 0})
+        return self._db.fila.find({"status": 0})
 
 
 if __name__ == "__main__":
     m = MongoOps()
-    print(m.getQueue().count())
+    print(m.get_queue().count())

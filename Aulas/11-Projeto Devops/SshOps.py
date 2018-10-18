@@ -8,7 +8,10 @@ class SshOps:
         self.ssh = SSHClient()
         self.ssh.load_system_host_keys()
         self.ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        self.ssh.connect(hostname='127.0.0.1', username='rafael', password='')
+        try:
+            self.ssh.connect(hostname='xxx', username='xxx', password='xxx')
+        except Exception as e:
+            print("Erro {}".format(e))
 
     def run_command(self, command):
         stdin, stdout, stderr = self.ssh.exec_command(command)
