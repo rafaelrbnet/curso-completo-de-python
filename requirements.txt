@@ -4,7 +4,7 @@ bcrypt==3.1.4
 cffi==1.11.5
 cryptography==2.3.1
 idna==2.7
-mysql-connector-python==8.0.12
+mysql-connector-python==8.0.14
 paramiko==2.4.2
 protobuf==3.6.1
 psycopg2==2.7.5
@@ -20,7 +20,7 @@ cffi==1.11.5
 configparser==3.5.0
 cryptography==2.3.1
 idna==2.7
-mysql-connector-python==8.0.12
+mysql-connector-python==8.0.14
 paramiko==2.4.2
 protobuf==3.6.1
 psycopg2==2.7.5
@@ -47,7 +47,7 @@ ItsDangerous==1.0.0
 Jinja2==2.10
 MarkupSafe==1.0
 mongoengine==0.15.3
-mysql-connector-python==8.0.12
+mysql-connector-python==8.0.14
 paramiko==2.4.2
 protobuf==3.6.1
 psycopg2==2.7.5
